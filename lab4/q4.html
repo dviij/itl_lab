@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bill Generator</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+    body {
+        background-color: teal;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center; /* Center align the content */
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+
+<label for="brand">Select Brand:</label>
+<select id="brand">
+    <option value="HP">HP</option>
+    <option value="Nokia">Nokia</option>
+    <option value="Samsung">Samsung</option>
+    <option value="Motorola">Motorola</option>
+    <option value="Apple">Apple</option>
+</select>
+
+<p>Mobile Price:</p>
+<select id="mobilePrice">
+    <option value="50">$50</option>
+    <option value="100">$100</option>
+    <!-- Add prices for other brands if needed -->
+</select>
+
+<p>Laptop Price:</p>
+<select id="laptopPrice">
+    <option value="100">$100</option>
+    <option value="150">$150</option>
+    <!-- Add prices for other brands if needed -->
+</select>
+
+<label for="quantity">Enter Quantity:</label>
+<input type="number" id="quantity" min="1" value="1" />
+
+<button id="calcBill">Produce Bill</button>
+
+<script>
+    $(document).ready(function() {
+        $('#calcBill').click(function() {
+            var brand = $('#brand').val();
+            var mobilePrice = parseInt($('#mobilePrice').val());
+            var laptopPrice = parseInt($('#laptopPrice').val());
+            var quantity = parseInt($('#quantity').val());
+
+            var totalAmount = 0;
+
+            // Base price for each item
+            var prices = {
+                HP: 500,
+                Nokia: 300,
+                Samsung: 700,
+                Motorola: 400,
+                Apple: 1000
+            };
+
+            // Adding price based on brand selected
+            totalAmount += prices[brand] * quantity;
+
+            // Additional price for Mobile
+            totalAmount += mobilePrice * quantity;
+
+            // Additional price for Laptop
+            totalAmount += laptopPrice * quantity;
+
+            // Display total amount
+            alert("Total Amount: $" + totalAmount.toFixed(2));
+        });
+    });
+</script>
+
+</body>
+</html>
