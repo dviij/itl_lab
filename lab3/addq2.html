@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Simple Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color:#98F5F9 ;
+    }
+    .calculator {
+        background-color: #888;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"] {
+        width: 95%;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 16px;
+    }
+    button {
+        margin: 5px;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="calculator">
+    <input type="text" id="num1" placeholder="Enter Number 1">
+    <input type="text" id="num2" placeholder="Enter Number 2">
+    <button onclick="calculate('+')">Add</button>
+    <button onclick="calculate('-')">Subtract</button>
+    <button onclick="calculate('*')">Multiply</button>
+    <button onclick="calculate('/')">Divide</button>
+    <input type="text" id="result" readonly placeholder="Result">
+</div>
+<script>
+    function calculate(operator) {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var result;
+        switch(operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 === 0) {
+                    result = "Error! Division by zero.";
+                } else {
+                    result = num1 / num2;
+                }
+                break;
+        }
+        document.getElementById("result").value = result;
+    }
+</script>
+</body>
+</html>

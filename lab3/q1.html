@@ -1,0 +1,57 @@
+<html>
+<body>
+
+<h2>Online Quiz</h2>
+
+<form id="quiz">
+  <h3>1. What is the capital of India?</h3>
+  <input type="radio" name="q1" value="Mumbai"> Mumbai<br>
+  <input type="radio" name="q1" value="Delhi"> Delhi<br>
+  <input type="radio" name="q1" value="Kolkata"> Kolkata<br>
+  <input type="radio" name="q1" value="Chennai"> Chennai<br>
+
+  <h3>2. What is the capital of Australia?</h3>
+  <input type="radio" name="q2" value="Sydney"> Sydney<br>
+  <input type="radio" name="q2" value="Melbourne"> Melbourne<br>
+  <input type="radio" name="q2" value="Canberra"> Canberra<br>
+  <input type="radio" name="q2" value="Perth"> Perth<br>
+
+  <h3>3. What is the capital of U.S.A?</h3>
+  <input type="radio" name="q3" value="WashingtonDc">Washington DC<br>
+  <input type="radio" name="q3" value="NY">New York<br>
+  <input type="radio" name="q3" value="Dallas">Dallas<br>
+  <input type="radio" name="q3" value="Chicago">Chicago<br>
+
+
+
+
+  <input type="button" value="Submit" onclick="getScore()">
+</form>
+
+<p id="score"></p>
+
+<script>
+var answers = {
+  q1: 'Delhi',
+  q2: 'Canberra',
+  q3: 'WashingtonDc'
+};
+
+function getScore() {
+  var score = 0;
+  var form = document.getElementById('quiz');
+  for (var key in answers) {
+    var radios = form[key];
+    for (var i = 0; i < radios.length; i++) {
+      var radio = radios[i];
+      if (radio.value == answers[key] && radio.checked) {
+        score++;
+      }
+    }
+  }
+  document.getElementById('score').innerHTML = 'Score: ' + score;
+}
+</script>
+
+</body>
+</html>

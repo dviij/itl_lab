@@ -1,0 +1,60 @@
+
+<html>
+<head>
+    <title>Dynamic Clock</title>
+    <style>
+        body {
+            font-family: Courier New, monospace;
+	    font-size:80px;
+	    color:#00777C;
+            background-color: #FEA66B;
+            padding: 30px;
+            text-align: center;
+        }
+        #clock {
+            font-size: 130px;
+            color: black;
+            margin-top: 90px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="greeting"></h1>
+    <h3 id ="greet"></h3>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            var time = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('clock').innerHTML = time;
+
+            var greetingText;
+            if (hours < 12) {
+                greetingText = "Good Morning!";
+            } else if (hours < 18) {
+                greetingText = "Good Afternoon!";
+            } else {
+                greetingText = "Good Evening!";
+            }
+		
+
+	    var newtext;
+	    if(seconds%2==0){
+		newtext="!!EVEN!!";}
+	    else{
+		newtext="!!ODD!!";}
+            document.getElementById('greeting').innerHTML = greetingText;
+            document.getElementById('greet').innerHTML = newtext;
+
+            setTimeout(updateClock, 1000);
+        }
+        updateClock();
+    </script>
+</body>
+</html>

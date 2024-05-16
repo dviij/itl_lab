@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+<style>
+h1{text-align:center;}
+</style>
+</head>
+<body>
+    <h1>Grade Calculator</h1>
+    <h2>Max Marks is 100 and Min marks is 0</h2>
+    <label for="subject1">Subject 1:</label>
+    <input type="number" id="subject1" name="subject1"><br>
+    <label for="subject2">Subject 2:</label>
+    <input type="number" id="subject2" name="subject2"><br>
+    <label for="subject3">Subject 3:</label>
+    <input type="number" id="subject3" name="subject3"><br>
+    <label for="subject4">Subject 4:</label>
+    <input type="number" id="subject4" name="subject4"><br>
+    <button onclick="calculateGrade()">Calculate Grade</button>
+    <p id="grade"></p>
+
+    <script>
+        function calculateGrade() {
+            var subject1 = document.getElementById('subject1').value;
+            var subject2 = document.getElementById('subject2').value;
+            var subject3 = document.getElementById('subject3').value;
+            var subject4 = document.getElementById('subject4').value;
+
+            var average = (parseFloat(subject1) + parseFloat(subject2) + parseFloat(subject3) + parseFloat(subject4)) / 4;
+            var grade;
+
+            if (average > 90) {
+                grade = 'A';
+            } else if (average > 80) {
+                grade = 'B';
+            } else if (average > 70) {
+                grade = 'C';
+            } else if (average > 60) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+
+            document.getElementById('grade').innerHTML = 'Your grade is: ' + grade;
+        }
+    </script>
+</body>
+</html>
