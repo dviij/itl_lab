@@ -1,0 +1,58 @@
+
+<html>
+<head>
+
+    <title>Student Details Form</title>
+    <style>
+        /* Add any custom CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Student Details Form</h1>
+    <br>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <br>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br>
+        <br>
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea><br>
+        <br>
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" name="contact" required><br>
+        <br>
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" required><br>
+        <br>
+        <label for="english">English Marks:</label>
+        <input type="number" id="english" name="english" min="0" max="100" required><br>
+        <br>
+        <label for="physics">Physics Marks:</label>
+        <input type="number" id="physics" name="physics" min="0" max="100" required><br>
+        <br>
+        <label for="chemistry">Chemistry Marks:</label>
+        <input type="number" id="chemistry" name="chemistry" min="0" max="100" required><br>
+        <br>
+        <button type="button" onclick="calculatePercentage()">Submit</button>
+        <br>
+    </form>
+
+    <label>Total Percentage of Marks Obtained:</label>
+    <span id="percentageLabel"></span>
+
+    <script>
+        function calculatePercentage() {
+            const englishMarks = parseFloat(document.getElementById('english').value);
+            const physicsMarks = parseFloat(document.getElementById('physics').value);
+            const chemistryMarks = parseFloat(document.getElementById('chemistry').value);
+
+            const totalMarks = englishMarks + physicsMarks + chemistryMarks;
+            const percentage = (totalMarks / 300) * 100;
+
+            document.getElementById('percentageLabel').textContent = percentage.toFixed(2) + '%';
+        }
+    </script>
+</body>
+</html>
