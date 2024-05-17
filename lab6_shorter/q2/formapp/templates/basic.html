@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="cover" class="cover">
+        <input type="file" id="coverImage" onchange="loadImage(event)">
+        <div id="coverText" class="cover-text"></div>
+    </div>
+    <form id="coverForm">
+        <label for="backgroundColor">Background Color:</label>
+        <input type="color" id="backgroundColor" name="backgroundColor" onchange="changeBackgroundColor(event)">
+        <label for="coverMessage">Cover Message:</label>
+        <input type="text" id="coverMessage" name="coverMessage" onchange="changeCoverMessage(event)">
+        <label for="fontSize">Font Size:</label>
+        <input type="number" id="fontSize" name="fontSize" min="1" max="100" onchange="changeFontSize(event)">
+        <label for="fontColor">Font Color:</label>
+        <input type="color" id="fontColor" name="fontColor" onchange="changeFontColor(event)">
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
